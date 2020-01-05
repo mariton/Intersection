@@ -1,23 +1,30 @@
+import { useRef, useState, useEffect } from 'react';
 import React from 'react';
-import logo from './logo.svg';
+import ReactNode from './ReactNode';
+import { Provider } from 'react-dims';
 import './App.css';
-import Matrix from './matrix/Matrix';
 
-
-function App() {
-  var data = [
-  {rowKey:"32", items:[{column:"A", value:0},{column:"B", value:1},{column:"D", value:2}]},
-  {rowKey:"34", items:[{column:"A", value:3},{column:"B", value:4},{column:"D", value:5}]},
-  {rowKey:"36", items:[{column:"A", value:6},{column:"B", value:7},{column:"D", value:8}]},
-]
-
+const App=()=>{
+  const [data, setData] = useState([]);
+  const generateData = ()=>{
+    let arr = [];
+    for(let i =0; i < 10; i++){
+      arr.push(Math.round(Math.random()*10));
+    };
+    setData(arr);
+  };
+  useEffect(()=>generateData(),[])
   return (
-    <div className="App">
-      <div className="matrix">
-        <Matrix data={data} id ="matrix"/>
+    <div className="myLayout">
+      <div style={{gridArea: '1/2/2/4', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <button onClick={generateData}>update data</button></div>
+      <div className="coolThing">
+        <Provider>
+          <ReactNode data={data}/>
+        </Provider>
       </div>
     </div>
   );
-}
+};
 
 export default App;

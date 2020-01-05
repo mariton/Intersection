@@ -1,15 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { withContext } from 'react-dims';
-import Matrix from './matrix/Matrix';
+import ThePattern from './d3Land/ThePattern';
 
 const ReactNode = ({dims, data})=>{
   const domNode = useRef(null);
   const [canvas, createCanvas] = useState(null);
   const [vizInitialized, setVizInitialized]= useState(false);
   useEffect(()=>{
-    createCanvas(()=>new Matrix(domNode.current));
+    createCanvas(()=>new ThePattern(domNode.current));
   },[]);
-  
   useEffect(()=>{
     if(data.length>1 && dims.width && vizInitialized===false){
       canvas.init(data, dims);
