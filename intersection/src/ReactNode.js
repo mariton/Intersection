@@ -1,26 +1,32 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { withContext } from 'react-dims';
-import ThePattern from './d3Land/ThePattern';
+import Matrix from './matrix/Matrix';
 
-const ReactNode = ({dims, data})=>{
+const ReactNode = ({dims, data, options})=>{
   const domNode = useRef(null);
   const [canvas, createCanvas] = useState(null);
   const [vizInitialized, setVizInitialized]= useState(false);
+
+  console.log("dims in ReactNode", dims)
+
   useEffect(()=>{
-    createCanvas(()=>new ThePattern(domNode.current));
-  },[]);
+    createCanvas(()=>new Matrix(domNode.current, options));
+  },[options]);
+
   useEffect(()=>{
     if(data.length>1 && dims.width && vizInitialized===false){
       canvas.init(data, dims);
       setVizInitialized(()=>true);
     };
-  },[data, dims, vizInitialized, canvas]);
-
+  },[data, dims, vizInitialized, canvas]);  
+  
   useEffect(()=>{
-    vizInitialized && canvas.updateData(data);
-  }, [data, vizInitialized, canvas]);
+    vizInitialized && canvas.updateDims(dims);
+  },[dims,vizInitialized,canvas])
+  
+
   return (
-    <div ref={domNode} style={{display: 'grid', height: '100%'}}/>
+    <div ref={domNode} style={{height: '100%', width: '100%'}}/>
   )
 };
 

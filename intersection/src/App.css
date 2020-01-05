@@ -1,3 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #3a3a3a;
+}
+
+.yAxis {
+  font-size: 14px;
+  font-weight: regular;
+  color:#3a3a3a;
+}
+
+.xAxis {
+  font-size: 14px;
+  font-weight: regular;
+  color:#3a3a3a;
+
+}
+.xAxis path {
+  display:none;
+}
+
+.yAxis path {
+  display:none;
+}
+.App-link {
+  color: #3a3a3a;
+}
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background-color: #fff;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+button{
+  margin:3px;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 50px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.matrix {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+.squareInvisible{
+  background-color:inherit; 
+  float: left;
+  height: 25px;
+  padding: 0;
+  text-align: center;
+  width: 50px;
+  border:none;
+
+}
 .myLayout {
   display: grid;
   height: 100vh;
@@ -6,4 +110,128 @@
 }
 .coolThing {
   grid-area: 2/2/4/4;
+}
+
+.board-row-axis {
+  width: 100%;
+  height: 40px;
+  clear: both;
+  content: "";
+  background-color: #5cfa86;
+}
+.board-column-axis {
+  width: 10%;
+  height: 100%;
+  float:left;
+  clear: both;
+  content: "";
+  background-color: #5cfa86;
+}
+.yAxis {
+  background: #5cfa86;
+  float: left;
+  font-size: 12px;
+  line-height: 40px;
+  height: 60px;
+  text-align: center;
+}
+.axis{
+  background-color: #5cfa86 ;
+  font-size: 14px;
+  line-height: 40px;
+  height: 60px;
+  text-align: center;
+  font-weight: bolder;
+
+}
+.tick line{
+  stroke: lightgrey;
+  stroke-width:0.5px;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+.axisLeft
+{
+  color:red;
+}
+
+.intersectionText
+{
+  width: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 40px;
+  text-anchor: top;
+  font-style: italic;
+}
+.d3-tip {
+  line-height: 1;
+  font-weight: inherit;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+th
+{
+text-align: middle;
+background-color: #363636;
+color:#fafafa;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+padding: 10px 15px;
+}
+
+
+td
+{
+  text-align: right;
+  font-size: 12px;
+  font-weight: normal;
+  padding:5px;
+}
+.title
+{
+  font-size: 34px;
+  text-anchor: middle;
+  line-height: 50px;
+
+}
+.legend
+{
+  border:1px solid #fff;
+  background-color: #efefef;
+}
+.legendText
+{
+  font-size: 8px;
+  text-anchor: center;
+  text-align: bottom;
+  line-height: 20px;
+}
+.legendTitle
+{
+  font-size: 10px;
+  
 }
