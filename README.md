@@ -10,3 +10,7 @@ Clone this repository, go to intersection directory and run
 
 **npm start**
 
+### Documentation
+
+Check Wiki pages of this [project](https://github.com/mariton/Intersection/wiki).
+
